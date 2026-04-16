@@ -29,7 +29,7 @@ function Review({ formData, back, onSuccess }) {
 
     setLoading(true);
 
-    // Simulated API call
+    
     setTimeout(() => {
       setLoading(false);
       onSuccess();
