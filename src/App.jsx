@@ -23,9 +23,9 @@ function App() {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState(initialData);
   const [darkMode, setDarkMode] = useState(false);
-  const [hydrated, setHydrated] = useState(false); // 🔥 hydration flag
+  const [hydrated, setHydrated] = useState(false); 
 
-  // Load saved data from LocalStorage
+ 
   useEffect(() => {
     const savedData = localStorage.getItem("formData");
     if (savedData) {
@@ -34,18 +34,17 @@ function App() {
         ...JSON.parse(savedData),
       }));
     }
-    setHydrated(true); // ✅ mark as hydrated after loading
+    setHydrated(true); //
   }, []);
 
-  // Save form data to LocalStorage
+
   useEffect(() => {
-    if (!hydrated) return; // ⛔ skip saving before hydration
+    if (!hydrated) return; 
 
     const { profileImage, resumePdf, ...safeData } = formData; // avoid storing files
     localStorage.setItem("formData", JSON.stringify(safeData));
   }, [formData, hydrated]);
 
-  // Reset form
   const resetForm = () => {
     localStorage.removeItem("formData");
     setFormData(initialData);
