@@ -6,18 +6,18 @@ function Step1({ formData, setFormData, next }) {
   const handleNext = () => {
     const newErrors = {};
 
-    // Required fields
+    
     if (!formData.firstName) newErrors.firstName = "First name is required";
     if (!formData.lastName) newErrors.lastName = "Last name is required";
 
-    // Email validation
+    
     if (!formData.email) {
       newErrors.email = "Email is required";
     } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
       newErrors.email = "Enter a valid email address";
     }
 
-    // Phone validation
+    
     if (!formData.phone) {
       newErrors.phone = "Phone number is required";
     } else if (!/^[0-9]{10}$/.test(formData.phone)) {
